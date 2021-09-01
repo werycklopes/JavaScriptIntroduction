@@ -16,14 +16,19 @@ adicionarB.addEventListener("click", function (event) {
     return;
   }
 
-  //adiciona o paciente na tabela
-  var tabela = document.querySelector("#tabela-pacientes");
-  tabela.appendChild(pacienteTr);
+adicionaPacienteNaTabela(paciente);
 
   form.reset();
   var mensagensErro = document.querySelector("#mensagens-erro");
   mensagensErro.innerHTML = "";
 });
+
+function adicionaPacienteNaTabela(paciente){
+  var pacienteTr = montaTr(paciente); //pega o paciente e monta a TR dele
+  var tabela = document.querySelector("#tabela-pacientes"); //vai na tabela e busca a tabela
+  tabela.appendChild(pacienteTr); //coloca o paciente TR na tabela
+
+}
 
 function exibeMensagemDeErro(erros){
   var ul = document.querySelector("#mensagens-erro");
